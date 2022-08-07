@@ -7,8 +7,8 @@ export default function (props) {
         <Atividade
           key={e.id}
           atividade={e}
-          deletarAtividade={props.deletarAtividade}
           pegarAtividade={props.pegarAtividade}
+          handleConfirmModal={props.handleConfirmModal}
         />
       ))}
     </div>

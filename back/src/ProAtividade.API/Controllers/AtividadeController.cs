@@ -37,18 +37,18 @@ namespace ProAtividade.API.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<Atividade> Post([FromBody] Atividade atividade)
+        public Atividade Post([FromBody] Atividade atividade)
         {
             context.Atividades.Add(atividade);
 
             if (context.SaveChanges() > 0)
-                return context.Atividades;
+                return atividade;
             else
                 throw new Exception("Você não conseguiu adicionar uma atividade");
         }
 
         [HttpPut("{id}")]
-        public Atividade Put(int id, Atividade atividade)
+        public Atividade Put(int id, [FromBody] Atividade atividade)
         {
             if (atividade.Id != id) throw new Exception("Você esta tentando atualizar uma atividade errada");
 
