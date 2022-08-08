@@ -52,7 +52,9 @@ function App() {
 
   const atualizarAtividade = async (ativ) => {
     handleAtividadeModal();
+    debugger;
     const response = await api.put(`atividade/${ativ.id}`, ativ);
+    debugger;
     const { id } = response.data;
     setAtividades(
       atividades.map((item) => (item.id == id ? response.data : item))
