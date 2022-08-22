@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ProAtividade.Data.Context.DataContext>(
     options => options.UseSqlite(Configuration.GetConnectionString("Default"))
 );
 
+
 builder.Services.AddScoped<IAtividadeRepo, AtividadeRepo>();
 builder.Services.AddScoped<IGeralRepo, GeralRepo>();
 builder.Services.AddScoped<IAtividadeService, AtividadeService>();
@@ -45,9 +46,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-
 }
 //app.UseHttpsRedirection();
 
